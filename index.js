@@ -7,10 +7,11 @@
 const API_KEY = "436cab735d864ce3b8740332250805";
 const docs = document.getElementById("detail_card");
 const img = document.getElementById("rainy_img_logo");
-const forecastFourDays = document.getElementById("forecast_text");
+const forecastFourDays = document.getElementById("forecast_main");
 function formSubmit() {
   const cityName = document.getElementById("searchbar_input_in")?.value;
   updateCard(cityName);
+  forecastData(cityName);
 }
 
 function updateCard(cityName) {
@@ -73,23 +74,29 @@ function geolocationError() {
 
 function forecastData(cityName) {
   if (cityName) {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}&days=5`;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}&days=4`;
 
-    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=metric`;
     fetch(url)
       .then((response) => response?.json())
       .then((data) => {
-        const img_url = data?.current?.condition?.icon;
-        if (img_url) {
-          img.src = `https:${img_url}`;
-        }
-        forecastFourDays.innerHTML = `
-                //  <h4 forecast_text_para>Date: ${data.date}</h4>
-                <p class="forecast_text_para">Temperature: ${data?.current?.temp_c}°C</p>
-                <p class="forecast_text_para">Wind: ${data?.current?.wind_mph}M/S</p>
-                <p class="forecast_text_para">Humidity: ${data?.current?.humidity}%</p>
-           
+        forecastFourDays.innerHTML = "";
+        for (let item of data?.forecast?.forecastday) {
+          const createDiv = document.createElement("div");
+
+          createDiv.innerHTML = `
+               <div class="forecast_text" >
+              <h4 class="forecast_text_para">Date:${item?.date}</h4>
+              <img
+                src=https:${item?.day?.condition?.icon}
+                alt="forecast_img"
+              />
+              <p class="forecast_text_para">Temp: ${item?.day?.maxtemp_c}°C</p>
+              <p class="forecast_text_para">Wind: ${item?.day?.maxwind_mph}M/S</p>
+              <p class="forecast_text_para">Humidity:${item?.day?.avghumidity}%</p>
+            </div>
           `;
+          forecastFourDays.appendChild(createDiv);
+        }
       })
       .catch((error) => console?.error(error));
   } else {
