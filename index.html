@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheather Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+   
+    <div id="container">
+
+      <div class="navbar">Weather Dashboard</div>
+      <div class="mainContainer">
+        <div class="searchbar_main" >
+          <p class="searchbar_text">Enter a City Name</p>
+
+          <div class="searchbar_input">
+            <form id="form" action="" method="post" onsubmit="return false;">
+            <input
+              type="text"
+              class="searchbar_input_in"
+              id="searchbar_input_in"
+              placeholder="E.g., New York, London, Tokyo"
+            />
+          </div>
+          <div class="searchbar_input">
+            <button type="submit" onclick="formSubmit()" class="searchbar_btn">
+              Search
+            </button>
+            <br />
+          </div>
+
+          <div class="horizontal-line-container">
+            <span class="line"></span>
+            <span class="text">or</span>
+            <span class="line"></span>
+          </div>
+          <div class="searchbar_input">
+            <button class="searchbar_btn location" onclick="getLocation()">Use Current Location</button>
+          </div>
+        </form>
+        </div>
+        <div class="weather_dashboard">
+          <div class="dashboard_main" Id="dashboard_main">
+            <div class="dashboard_main_text" id="detail_card">
+              <h3 class="dashboard_main_heading">City Name</h3>
+              <p class="dashboard_main_para">Temperature: -</p>
+              <p class="dashboard_main_para">Wind: -</p>
+              <p class="dashboard_main_para">Humidity: -</p>
+            </div>
+            <div class="dashboard_main_img">
+              <img id="rainy_img_logo"
+                src="C:\Users\HP PC\OneDrive\Pictures\Saved Pictures\rainy3.png"
+                alt="rainy_img_logo"
+              />
+              <p>Moderate Rain</p>
+            </div>
+          </div>
+          <h3 class="forecast_heading">4-Day Forecast</h3>
+          <div class="forecast_main">
+            <div class="forecast_text" id="forecast_text">
+              <h4 class="forecast_text_para">Date: -(2023-06-20)</h4>
+              <img
+                src="C:\Users\HP PC\OneDrive\Pictures\Saved Pictures\icon14.png"
+                alt="forecast_img1"
+              />
+              <p class="forecast_text_para">Temp: -</p>
+              <p class="forecast_text_para">Wind: -</p>
+              <p class="forecast_text_para">Humidity: -</p>
+            </div>
+            <div class="forecast_text">
+              <h4 class="forecast_text_para">Date: -(2023-06-21)</h4>
+              <img
+                src="C:\Users\HP PC\OneDrive\Pictures\Saved Pictures\sun11.png"
+                alt="forecast_img2"
+              />
+               <p class="forecast_text_para">Temp: -</p>
+              <p class="forecast_text_para">Wind: -</p>
+              <p class="forecast_text_para">Humidity: -</p>
+            </div>
+            <div class="forecast_text">
+              <h4 class="forecast_text_para">Date: -(2023-06-22)</h4>
+              <img
+                src="C:\Users\HP PC\OneDrive\Pictures\Saved Pictures\icon15.png"
+                alt="forecast_img3"
+              />
+               <p class="forecast_text_para">Temp: -</p>
+              <p class="forecast_text_para">Wind: -</p>
+              <p class="forecast_text_para">Humidity: -</p>
+            </div>
+            <div class="forecast_text">
+              <h4 forecast_text_para>Date: -(2023-06-23)</h4>
+              <img
+                src="C:\Users\HP PC\OneDrive\Pictures\Saved Pictures\icon16.png"
+                alt="forecast_img4"
+              />
+               <p class="forecast_text_para">Temp: -</p>
+              <p class="forecast_text_para">Wind: -</p>
+              <p class="forecast_text_para">Humidity: -</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
