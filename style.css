@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --background-color: #e5e5e5;
   --grey: rgb(110, 108, 108);
@@ -151,4 +152,17 @@
   padding: 0.33rem;
   height: 2.8rem;
   width: 2.8rem;
+}
+body {
+  font-size: 8px;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 600px) {
+  body {
+    font-size: 12px;
+  }
 }
